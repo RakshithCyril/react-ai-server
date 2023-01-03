@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const { Configuration, OpenAIApi } = require('openai')
 const configuration = new Configuration({
-  apiKey: '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'
+  apiKey: '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'
 })
 const cors = require('cors')
 const openai = new OpenAIApi(configuration)
@@ -27,10 +27,10 @@ const corsOptions = {
 app.post('/api',cors(corsOptions), async (req, res) => {
   const dat = req.body.userinput
   const completion = await openai.createCompletion({
-    model: 'text-davinci-002',
+    model: 'text-babbage-001',
     prompt: dat,
-    temperature:1,
-     max_tokens:2000
+    temperature:0,
+     max_tokens:500
   })
   const rslt = completion.data.choices[0].text
   res.send(rslt)
