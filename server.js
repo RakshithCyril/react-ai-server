@@ -34,7 +34,7 @@ const configuration = new Configuration({
 
 const cors = require('cors')
 const openai = new OpenAIApi(configuration)
-const port = 8080
+
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -44,6 +44,10 @@ const corsOptions = {
   origin: ['http://localhost:3000', 'http://192.168.1.2:3000'],
   optionsSuccessStatus: 200
 }
+
+app.get('/',(req,res)=>{
+  res.send('connected')
+})
 
 app.post('/login',async (req, res) => {
   const {email, password} = req.body
@@ -64,21 +68,21 @@ app.post('/signup', async (req, res) => {
   const { fname, lname, email, password } = req.body
   const bodyObj = req.body
   
-  // const hash = await bcrypt.hash(password,12)
-  // const user = new Users({
-  //   fname: fname,
-  //   lname: lname,
-  //   email: email,
-  //   pass: hash
-  // })
-  // await user
-  //   .save()
-  //   .then(dat => {
-  //     console.log(dat)
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
+  const hash = await bcrypt.hash(password,12)
+  const user = new Users({
+    fname: fname,
+    lname: lname,
+    email: email,
+    pass: hash
+  })
+  await user
+    .save()
+    .then(dat => {
+      console.log(dat)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   res.send('done!!')
 })
 
@@ -93,7 +97,7 @@ app.post('/api', cors(corsOptions), async (req, res) => {
   const rslt = completion.data.choices[0].text
   res.send(rslt)
 })
-
+const port = process.env.PORT || 8080
 app.listen(port, () => {
   console.log(`Listening...`)
 })
