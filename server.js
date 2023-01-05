@@ -41,7 +41,7 @@ app.use(bodyParser.json())
 app.use(cors())
 const corsOptions = {
   credentials: true,
-  origin: ['http://localhost:3000', 'http://192.168.1.2:3000'],
+  origin: ['https://natalia-uxy3.onrender.com/', 'http://192.168.1.2:3000'],
   optionsSuccessStatus: 200
 }
 
