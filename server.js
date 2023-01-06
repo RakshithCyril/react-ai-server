@@ -68,7 +68,7 @@ app.post('/signup', async (req, res) => {
   const { fname, lname, email, password } = req.body
   const bodyObj = req.body
 
-  // const hash = await bcrypt.hash(password, 12)
+  const hash = await bcrypt.hash(password, 12)
   const validate = await Users.findOne({ email: email })
   if(!validate){
     res.send('done')
