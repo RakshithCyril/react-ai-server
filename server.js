@@ -29,7 +29,7 @@ mongoose
 
 const { Configuration, OpenAIApi } = require('openai')
 const configuration = new Configuration({
-  apiKey: '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'
+  apiKey: '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'
 })
 
 const cors = require('cors')
@@ -95,8 +95,8 @@ app.post('/api', async (req, res) => {
     max_tokens: 500
   })
   const rslt = completion.data.choices[0].text
-  // res.send(rslt)
-  res.send('connected')
+  res.send(rslt)
+  // res.send('connected')
 })
 const port = process.env.PORT || 8080
 app.listen(port, () => {
