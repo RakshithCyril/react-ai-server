@@ -86,7 +86,7 @@ app.post('/signup', async (req, res) => {
   res.send('done!!')
 })
 
-app.post('/api', cors(corsOptions), async (req, res) => {
+app.post('/api', async (req, res) => {
   const dat = req.body.userinput
   const completion = await openai.createCompletion({
     model: 'text-babbage-001',
