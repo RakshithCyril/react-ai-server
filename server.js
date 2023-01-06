@@ -29,7 +29,6 @@ mongoose
 
 const { Configuration, OpenAIApi } = require('openai')
 const configuration = new Configuration({
-  organization:'org-wGYB38SgWnXjpwJzbzF36CSE',
   apiKey: process.env.api
 })
 
