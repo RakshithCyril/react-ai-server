@@ -95,7 +95,8 @@ app.post('/api', async (req, res) => {
     max_tokens: 500
   })
   const rslt = completion.data.choices[0].text
-  res.send(rslt)
+  // res.send(rslt)
+  res.send('connected')
 })
 const port = process.env.PORT || 8080
 app.listen(port, () => {
