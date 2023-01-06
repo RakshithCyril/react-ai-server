@@ -29,7 +29,7 @@ mongoose
 
 const { Configuration, OpenAIApi } = require('openai')
 const configuration = new Configuration({
-  apiKey: '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'
+  apiKey: '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'
 })
 
 const cors = require('cors')
