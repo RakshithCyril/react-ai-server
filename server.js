@@ -45,8 +45,8 @@ const corsOptions = {
   optionsSuccessStatus: 200
 }
 
-app.get('/', (req, res) => {
-  res.send('connected')
+app.get('/', async(req, res) => {
+  
 })
 
 app.post('/login', async (req, res) => {
@@ -62,7 +62,6 @@ app.post('/login', async (req, res) => {
       res.send(true)
     }
   }
-  console.log(valEmail)
 })
 app.post('/signup', async (req, res) => {
   const { fname, lname, email, password } = req.body
@@ -81,10 +80,8 @@ app.post('/signup', async (req, res) => {
     await user
       .save()
       .then(dat => {
-        console.log(dat)
       })
       .catch(err => {
-        console.log(err)
       })
   }else{
     res.send(true)
@@ -106,6 +103,11 @@ app.post('/api', async (req, res) => {
   // res.send('connected')
 })
 const port = process.env.PORT || 8080
-app.listen(port, () => {
-  console.log(`Listening...`)
+app.listen(port,async () => {
+  const completion = await openai.createCompletion({
+    model: 'text-babbage-001',
+    prompt: "hey",
+    temperature: 0,
+    max_tokens: 1
+  })
 })
