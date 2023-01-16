@@ -100,7 +100,6 @@ app.post('/api', async (req, res) => {
   })
   const rslt = completion.data.choices[0].text
   res.send(rslt)
-  // res.send('connected')
 })
 const port = process.env.PORT || 8080
 app.listen(port,async () => {
