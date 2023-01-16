@@ -38,7 +38,7 @@ const openai = new OpenAIApi(configuration)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors(corsOptions))
 const corsOptions = {
   credentials: true,
   origin: ['https://natalia-uxy3.onrender.com/', 'http://192.168.1.2:3000','http://localhost:3000'],
