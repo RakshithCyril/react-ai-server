@@ -35,15 +35,15 @@ const configuration = new Configuration({
 const cors = require('cors')
 const { validate } = require('./models/users')
 const openai = new OpenAIApi(configuration)
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(cors())
 const corsOptions = {
   credentials: true,
   origin: '*',
   optionsSuccessStatus: 200
 }
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(cors(corsOptions))
+
 
 app.get('/', async(req, res) => {
   res.send('connected')
