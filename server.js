@@ -46,7 +46,7 @@ const corsOptions = {
 }
 
 app.get('/', async(req, res) => {
-  
+  res.send('connected')
 })
 
 app.post('/login', async (req, res) => {
