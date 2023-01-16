@@ -35,15 +35,15 @@ const configuration = new Configuration({
 const cors = require('cors')
 const { validate } = require('./models/users')
 const openai = new OpenAIApi(configuration)
-const corsOptions = {
-  credentials: true,
-  origin: "http://localhost:3000",
-  optionsSuccessStatus: 200
-}
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors(corsOptions))
-
+app.use(cors())
+const corsOptions = {
+  credentials: true,
+  origin: ['https://natalia-uxy3.onrender.com/', 'http://192.168.1.2:3000'],
+  optionsSuccessStatus: 200
+}
 
 app.get('/', async(req, res) => {
   res.send('connected')
