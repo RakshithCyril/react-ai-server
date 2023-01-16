@@ -93,7 +93,7 @@ app.post('/signup', async (req, res) => {
 app.post('/api', async (req, res) => {
   const dat = req.body.userinput
   const completion = await openai.createCompletion({
-    model: 'text-babbage-001',
+    model: 'text-davinci-003',
     prompt: dat,
     temperature: 0.5,
     max_tokens: 280
@@ -105,7 +105,7 @@ app.post('/api', async (req, res) => {
 const port = process.env.PORT || 8080
 app.listen(port,async () => {
   const completion = await openai.createCompletion({
-    model: 'text-babbage-001',
+    model: 'text-davinci-003',
     prompt: "hey",
     temperature: 0,
     max_tokens: 1
