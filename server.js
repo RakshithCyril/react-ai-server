@@ -95,8 +95,8 @@ app.post('/api', async (req, res) => {
   const completion = await openai.createCompletion({
     model: 'text-babbage-001',
     prompt: dat,
-    temperature: 0,
-    max_tokens: 500
+    temperature: 0.5,
+    max_tokens: 280
   })
   const rslt = completion.data.choices[0].text
   res.send(rslt)
