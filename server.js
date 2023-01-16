@@ -37,7 +37,7 @@ const { validate } = require('./models/users')
 const openai = new OpenAIApi(configuration)
 const corsOptions = {
   credentials: true,
-  origin: '*',
+  origin: "http://localhost:3000",
   optionsSuccessStatus: 200
 }
 app.use(bodyParser.urlencoded({ extended: true }))
