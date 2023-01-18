@@ -95,7 +95,7 @@ app.post('/api', async (req, res) => {
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: dat,
-    temperature: 0.5,
+    temperature: 1,
     max_tokens: 280
   })
   const rslt = completion.data.choices[0].text
